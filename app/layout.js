@@ -4,6 +4,8 @@ import Image from "next/image";
 import Logo from "@/public/images/UdvashUnmeshOnlineCare.png";
 import Link from "next/link";
 import { CiMenuBurger } from "react-icons/ci";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,35 +28,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="text-black bg-white">
-          <nav className="bg-white px-4 py-2 shadow-md flex items-center justify-between">
-            <div className="flex items-center gap-6">
-              <Link href="/">
-                <Image src={Logo} alt="Logo" className="h-12 w-auto" />
-              </Link>
-              <CiMenuBurger size={32} className="cursor-pointer" />
-            </div>
-            <div className="flex items-center gap-4">
-              <Image
-                src="https://ums-portal-3.osl.team/Content/Image/AppIcon/Notification.svg"
-                alt="Notification Icon"
-                width={32}
-                height={32}
-                className="cursor-pointer"
-              />
-              <Image
-                src="https://ums-portal-3.osl.team/Content/Image/AppIcon/Profile.svg"
-                alt="Profile Icon"
-                width={32}
-                height={32}
-                className="cursor-pointer"
-              />
-            </div>
-          </nav>
+        <div className="text-black bg-white flex flex-col h-screen">
+          <Navbar />
 
-          <div className="flex">
-            <aside>This is sidebar</aside>
-            <main>{children}</main>
+          <div className="flex flex-1 overflow-hidden">
+            <Sidebar />
+
+            <main className="bg-[#DED4DE] flex-1 overflow-y-auto">
+              {children}
+            </main>
           </div>
         </div>
       </body>
