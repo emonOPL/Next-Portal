@@ -6,6 +6,7 @@ import Link from "next/link";
 import { CiMenuBurger } from "react-icons/ci";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,8 @@ export default function RootLayout({ children }) {
 
             <main className="bg-[#DED4DE] flex-1 overflow-y-auto">
               {children}
+
+              <Footer />
             </main>
           </div>
         </div>
